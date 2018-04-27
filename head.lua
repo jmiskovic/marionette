@@ -19,8 +19,6 @@ local colors = {
   sclera = {l.hsl(0.17, 0.75, 0.98)},
 }
 
-love.math.newTransform()
-
 function head.new(name)
   return setmetatable({
     pose   = l.deftable({0, 0}),
@@ -59,11 +57,13 @@ function isolateTransformations(f, ...)
   love.graphics.pop()
 end
 
+
 function head:drawEars()
   for i=1,2 do
     love.graphics.push()
     love.graphics.translate(1, self.form.temple[2])
     love.graphics.translate(unpack(self.form.earPos))
+
 
     local earShape = self.form.earShape
     love.graphics.rotate(-earShape[1] * 3)

@@ -20,11 +20,7 @@ adamHead:loadForm()
 console.addStimulusCallback(respond)
 
 function love.resize()
-  if love.system.getOS() == 'Android' then
-    sh, sw = love.graphics.getDimensions()
-  else
-    sw, sh = love.graphics.getDimensions()
-  end
+  sw, sh = love.graphics.getDimensions()
 end
 
 function love.load()
@@ -85,14 +81,8 @@ function love.touchpressed()
 end
 
 function center()
-  if love.system.getOS() == 'Android' then
-    love.graphics.translate(sh/2, sw/2)
-    love.graphics.scale(sw/2 * 0.9, sw/2 * 0.9)
-    love.graphics.rotate(-math.pi/2)
-  else
-    love.graphics.translate(sw/2, sh/2)
-    love.graphics.scale(sw/2 * 0.9, sw/2 * 0.9)
-  end
+  love.graphics.translate(sw/2, sh/2)
+  love.graphics.scale(sw/2 * 0.9, sw/2 * 0.9)
 end
 
 function love.keypressed(key)
@@ -116,6 +106,8 @@ function love.keypressed(key)
     elseif editModes[mode] == 'none' then
       handles.release()
     end
+  elseif key == 'menu' then
+    love.keyboard.setTextInput(not love.keyboard.hasTextInput())
   elseif key == 'f2' then
     print('saving')
     persist.store(adamHead.form, 'headform_adam')

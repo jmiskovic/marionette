@@ -24,8 +24,8 @@ function console.draw()
   love.graphics.setColor(color)
   love.graphics.setFont(font)
   love.graphics.print(entry, 50, 5)
-  love.graphics.setFont(fontStats)
-  love.graphics.print(inspect(), 5, 60)
+  --love.graphics.setFont(fontStats)
+  --love.graphics.print(inspect(), 5, 60)
 end
 
 function console.interpret(s)

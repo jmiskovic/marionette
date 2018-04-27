@@ -1,4 +1,3 @@
-
 function love.conf(t)
   local resolutions = {
     [0] = {360, 640},
@@ -11,10 +10,13 @@ function love.conf(t)
     [7] = {1440, 2960}, -- Samsung Galaxy S8
     [8] = {1280, 720},  -- most common Android resolution
   }
-  t.window.title = "Face"
-  t.window.width, t.window.height = unpack(resolutions[3])
+  t.window.title = "Marionette"
   t.window.fullscreen = false
   t.window.resizable = true
   t.window.vsync = false
-  love.filesystem.setIdentity('adam')
+  t.window.width, t.window.height = unpack(resolutions[3])
+  -- for android need to use:
+  -- t.window.height, t.window.width = unpack(resolutions[3])
+
+  love.filesystem.setIdentity('marionette')
 end
